@@ -78,32 +78,32 @@ public class StudentServiceImpl implements StudentService {
      * adds a student to the db through the DAO
      * @param student Object to add to db
      */
-    public void addCust(Student student){
+    public void addStud(Student student){
 
         studentDAO.save(student);
     }
 
     /**
-     * edits a customer by updating db with new info
-     * @param customerEdit the edit object which contains the true ID and the customer to edit
+     * edits a student by updating db with new info
+     * @param studentEdit the edit object which contains the true ID and the customer to edit
      */
-    public void editCust(EditObj customerEdit){
+    public void editStud(EditObj studentEdit){
 
-        Student custEdit = customerEdit.getStudent();
-        custEdit.setId(customerEdit.getId());
-        studentDAO.save(custEdit);
+        Student studEdit = studentEdit.getStudent();
+        studEdit.setId(studentEdit.getId());
+        studentDAO.save(studEdit);
 
     }
 
     /**
-     * deletes a customer by updating db with new info
-     * @param customerEdit the edit object which contains the true ID and the customer to delete
+     * deletes a student by updating db with new info
+     * @param student the edit object which contains the true ID and the customer to delete
      */
-    public void deleteCust(EditObj customerEdit){
+    public void deleteStud(EditObj student){
 
-        Student custEdit = customerEdit.getStudent();
-        custEdit.setId(customerEdit.getId());
-        studentDAO.delete(custEdit);
+        Student studEdit = student.getStudent();
+        studEdit.setId(student.getId());
+        studentDAO.delete(studEdit);
 
     }
 }

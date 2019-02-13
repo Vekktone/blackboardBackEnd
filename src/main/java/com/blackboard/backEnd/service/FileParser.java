@@ -19,7 +19,7 @@ public class FileParser {
     StudentDAO studentDAO;
 
     /**
-     * parses the file and looks for each field, creates customer obj, adds to final list to return.
+     * parses the file and looks for each field, creates student obj, adds to final list to return.
      * @param filename name of file to parse
      * @return list of customers to add
      * @throws FileNotFoundException if the file is not found

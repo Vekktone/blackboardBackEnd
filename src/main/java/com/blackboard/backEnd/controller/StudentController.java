@@ -13,14 +13,14 @@ import javax.validation.Valid;
 import java.io.IOException;
 import java.util.List;
 
-@RequestMapping("/customer")
+@RequestMapping("/student")
 @RestController
 public class StudentController {
 
     @Autowired
     StudentService studentService;
 
-    private EditObj editCust;
+    private EditObj editStud;
 
     /**
      * get records endpoint for retrieval of data
@@ -35,7 +35,7 @@ public class StudentController {
     }
 
     /**
-     * search data endpoint for extracting a customer record based on first, last, or email
+     * search data endpoint for extracting a student record based on first, last, or email
      * @param searchText the string to search for
      * @return list of results that match the search string
      */
@@ -47,75 +47,75 @@ public class StudentController {
     }
 
     /**
-     * endpoint to add a customer to the database.
+     * endpoint to add a student to the database.
      * @param object Student object received from the front end
      * @param bindingResult if there sre errors in request
      */
-    @PostMapping("/addCust")
+    @PostMapping("/addStud")
     @CrossOrigin(origins = "http://localhost:4200")
-    public void addCust(@RequestBody @Valid Student object, BindingResult bindingResult) {
+    public void addStudent(@RequestBody @Valid Student object, BindingResult bindingResult) {
 
         if(bindingResult.hasErrors()){
             // handle error
-            LogInfo.sendError("addCust error!");
+            LogInfo.sendError("addStudent error!");
         }
         else
         {
-            this.studentService.addCust(object);
+            this.studentService.addStud(object);
         }
 
     }
 
     /**
-     * endpoint to edit customer information from frontend
-     * @param editCustomer customer and id object for matching an existing customer into the database
+     * endpoint to edit student information from frontend
+     * @param editStudent student and id object for matching an existing customer into the database
      * @param bindingResult for request errors
      */
-    @PostMapping("/editCust")
+    @PostMapping("/editStud")
     @CrossOrigin(origins = "http://localhost:4200")
-    public void editCust(@RequestBody @Valid String editCustomer, BindingResult bindingResult) {
+    public void editStud(@RequestBody @Valid String editStudent, BindingResult bindingResult) {
 
         ObjectMapper mapper = new ObjectMapper();
         try {
-            editCust = mapper.readValue(editCustomer, EditObj.class);
+            editStud = mapper.readValue(editStudent, EditObj.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         if(bindingResult.hasErrors()){
             // handle error
-            LogInfo.sendError("editCust error!");
+            LogInfo.sendError("editStud error!");
         }
         else
         {
-            this.studentService.editCust(editCust);
+            this.studentService.editStud(editStud);
         }
 
     }
 
     /**
-     * endpoint to delete a customer from database
-     * @param editCustomer customer and id object for matching a customer in data
+     * endpoint to delete a student from database
+     * @param editStudent student and id object for matching a student in data
      * @param bindingResult for request errors
      */
-    @PostMapping("/deleteCust")
+    @PostMapping("/deleteStud")
     @CrossOrigin(origins = "http://localhost:4200")
-    public void deleteCust(@RequestBody @Valid String editCustomer, BindingResult bindingResult) {
+    public void deleteStud(@RequestBody @Valid String editStudent, BindingResult bindingResult) {
 
         ObjectMapper mapper = new ObjectMapper();
         try {
-            editCust = mapper.readValue(editCustomer, EditObj.class);
+            editStud = mapper.readValue(editStudent, EditObj.class);
         } catch (IOException e) {
             e.printStackTrace();
         }
 
         if(bindingResult.hasErrors()){
             // handle error
-            LogInfo.sendError("editCust error!");
+            LogInfo.sendError("editStud error!");
         }
         else
         {
-            this.studentService.deleteCust(editCust);
+            this.studentService.deleteStud(editStud);
         }
     }
 }

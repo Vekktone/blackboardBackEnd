@@ -29,7 +29,7 @@ public class EmailService {
 
     /**
      * This method calls two helper functions to initialize and send an email to a
-     * designated user. The email contains an attachment which is used to store the customer
+     * designated user. The email contains an attachment which is used to store the student
      * info, since there could potentially be thousands of entries.
      * @param mailObj the recipient of the message received from front end
      * @throws MessagingException exception if mail fails to send
@@ -120,18 +120,18 @@ public class EmailService {
 
 
     /**
-     * This method sends the customer data to our output log, which will be used as the file to be attached
+     * This method sends the student data to our output log, which will be used as the file to be attached
      * in the email.
-     * @param studentList the result set is passed so we can access the database info for each customer
+     * @param studentList the result set is passed so we can access the database info for each student
      */
     private static void createOutput(List<Student> studentList) {
         int count = 0;
         Student prev = studentList.get(0);
 
-        LogInfo.sendOutput("=== Texas Customers ===\n\n");
+        LogInfo.sendOutput("=== Texas Students ===\n\n");
         for (Student student : studentList){
             if (count != 0 && !student.getState().equals(prev.getState()) && prev.getState().equals("TX")){
-                LogInfo.sendOutput("=== Out of State Customers ===\n\n");
+                LogInfo.sendOutput("=== Out of State Students ===\n\n");
             }
             LogInfo.sendOutput("Student #" + count++);
             LogInfo.sendOutput(student.getFirstName() + " " + student.getLast());

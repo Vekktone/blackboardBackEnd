@@ -10,11 +10,11 @@ public interface StudentService {
 
     void parseFileUpdateDB(String filename) throws FileNotFoundException;
 
-    void addCust(Student student);
+    void addStud(Student student);
 
-    void editCust(EditObj customerEdit);
+    void editStud(EditObj studentEdit);
 
-    void deleteCust(EditObj customer);
+    void deleteStud(EditObj student);
 
     List<Student> getRecords(long num);
     List<Student> searchData(String searchFirst);

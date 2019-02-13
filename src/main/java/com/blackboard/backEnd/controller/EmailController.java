@@ -26,7 +26,7 @@ public class EmailController {
     /**
      * The sendMail endpoint is called when the user hit the send button on the front end.
      * @param object This is the front end return piece containing an email recipient and a list of
-     *               customers for the email output file
+     *               students for the email output file
      * @param bindingResult this bindingResult checks for errors on request
      */
     @PutMapping("/sendMail")
