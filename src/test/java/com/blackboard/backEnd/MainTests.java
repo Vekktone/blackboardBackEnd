@@ -48,7 +48,7 @@ public class MainTests {
 	@Test
 	public void testGet1Records() throws Exception {
 
-		MvcResult result = mockMvc.perform(get("/customer/getRecords/1"))
+		MvcResult result = mockMvc.perform(get("/student/getRecords/1"))
 				.andExpect(status().isOk()).andReturn();
 //				.andExpect(content().json("[{'id':'3','address':'3208 Daniel Ave','city':'Dallas','email':'kathy@null.com','first_name':'Lee','last_name':'Kathy','state':'TX','zip':'75205-4909'}]"));
 	}
@@ -57,7 +57,7 @@ public class MainTests {
 	public void testGet10Records() throws Exception {
 
 
-		mockMvc.perform(get("/customer/getRecords/10"))
+		mockMvc.perform(get("/student/getRecords/10"))
 				.andExpect(status().isOk());
 //				.andExpect(content().json("[{'id':'3','address':'3208 Daniel Ave','city':'Dallas','email':'kathy@null.com','first_name':'Lee','last_name':'Kathy','state':'TX','zip':'75205-4909'}]"));
 	}
@@ -66,7 +66,7 @@ public class MainTests {
 	public void testSearch() throws Exception {
 
 
-		mockMvc.perform(get("/customer/searchData/Lee"))
+		mockMvc.perform(get("/student/searchData/Lee"))
 				.andExpect(status().isOk());
 //				.andExpect(content().json("[{'id':'3','address':'3208 Daniel Ave','city':'Dallas','email':'kathy@null.com','first_name':'Lee','last_name':'Kathy','state':'TX','zip':'75205-4909'}]"));
 	}
