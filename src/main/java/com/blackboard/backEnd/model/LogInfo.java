@@ -22,7 +22,7 @@ public class LogInfo {
      */
     public static void Configure() {
         PropertyConfigurator.configure(
-                "C:\\Users\\Riley\\IdeaProjects\\blackboardBackEnd\\src\\main\\resources\\log4j.properties");
+                "/home/riley/IdeaProjects/blackboardBackEnd/src/main/resources/log4j.properties");
 
         sendOutput("***Student Info Generated Email Attachment***\n");
         sendError("***errorLog messages***\n");
@@ -50,7 +50,7 @@ public class LogInfo {
         try {
 
             input = new FileInputStream(
-                    "C:\\Users\\Riley\\IdeaProjects\\blackboardBackEnd\\src\\main\\resources\\config.properties");
+                    "/home/riley/IdeaProjects/blackboardBackEnd/src/main/resources/config.properties");
 
             // load a properties file
             prop.load(input);
